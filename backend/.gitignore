@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environments
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Uploads and Outputs (only ignore images in these directories)
+uploads/
+outputs/
+# Note: Don't ignore images in frontend/public/ - they're needed for the UI
+
+# YOLOv8 runs directory
+runs/
+*.pt
+!model/best.pt
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+*.env
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# PyTorch
+*.pth
+*.ckpt
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

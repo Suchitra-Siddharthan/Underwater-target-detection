@@ -1,0 +1,74 @@
+/* Underwater Loader Styles */
+.loading-panel {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.loading-panel:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.loading-panel::before {
+  display: none;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(0, 212, 255, 0.2);
+  border-top-color: #00d4ff;
+  border-right-color: #40e0d0;
+  border-bottom-color: #5dade2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow:
+    0 0 20px rgba(0, 212, 255, 0.5),
+    inset 0 0 20px rgba(0, 212, 255, 0.2);
+  position: relative;
+}
+
+.spinner::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: rgba(0, 212, 255, 0.3);
+  animation: spin 2s linear infinite reverse;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-container p {
+  background: linear-gradient(135deg, #e0f2f1 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}

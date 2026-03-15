@@ -1,0 +1,184 @@
+🚀 QUICK START - NEW FEATURES
+
+BACKEND ✅
+═════════════════════════════════════════════════════════════════
+Status: Running on http://localhost:8000
+
+New Endpoints:
+  1. GET /features/analytics/summary
+     → Statistics about all user detections
+
+  2. POST /features/predict_with_threshold
+     → Run detection with custom confidence threshold
+
+Test with FastAPI Docs:
+  http://localhost:8000/docs
+
+
+FRONTEND ✅
+═════════════════════════════════════════════════════════════════
+Status: Running on http://localhost:3000 or http://localhost:5173
+
+New Navigation Buttons in Header:
+  📊 Analytics    → View detection statistics
+  🎚️ Threshold    → Test different confidence levels
+  📋 History      → View past detections
+  🔐 Logout       → Exit app
+
+New Pages:
+
+  1. 📊 Analytics Page
+     • Total Detections Count
+     • Most Detected Marine Species
+     • Average Confidence Score
+     • Breakdown Chart by Species
+     • Auto-refresh button
+
+  2. 🎚️ Threshold Page
+     • Confidence Threshold Slider (0.00 - 1.00)
+     • Upload Image
+     • See Real-Time Detection Results
+     • View Annotated Output
+     • List All Detected Objects
+
+
+HOW TO USE
+═════════════════════════════════════════════════════════════════
+
+STEP 1: LOGIN
+  → Navigate to login page
+  → Create account or login with existing credentials
+
+STEP 2: UPLOAD & DETECT (Original Feature)
+  → Click "Detection" in header
+  → Upload an image
+  → Click "Detect Targets"
+  → See results with annotated image
+
+STEP 3: CHECK ANALYTICS (NEW)
+  → Click "Analytics" in header
+  → See statistics about all your detections
+  → Refresh to update numbers
+  → View breakdown by creature class
+
+STEP 4: EXPERIMENT WITH THRESHOLDS (NEW)
+  → Click "Threshold" in header
+  → Upload an image
+  → Adjust threshold slider from 0.00 to 1.0
+  → See how detection results change
+  → Compare different threshold settings
+
+  Threshold Meanings:
+    0.0  = Show all detections (many false positives possible)
+    0.25 = Balanced (default)
+    0.5  = More selective
+    0.7  = Very strict (only high confidence)
+    1.0  = Maximum filtering (may miss objects)
+
+STEP 5: REVIEW HISTORY
+  → Click "History" in header
+  → See all past detections with images
+  → Download individual results
+
+
+API USAGE
+═════════════════════════════════════════════════════════════════
+
+Get Analytics:
+  curl -H "Authorization: Bearer {TOKEN}" \
+    http://localhost:8000/features/analytics/summary
+
+Run Threshold Prediction:
+  curl -X POST \
+    -H "Authorization: Bearer {TOKEN}" \
+    -F "file=@image.jpg" \
+    -F "confidence_threshold=0.5" \
+    http://localhost:8000/features/predict_with_threshold
+
+
+EXAMPLE RESPONSES
+═════════════════════════════════════════════════════════════════
+
+Analytics Response:
+{
+  "total_detections": 45,
+  "most_detected_class": "holothurian",
+  "class_counts": {
+    "holothurian": 20,
+    "echinus": 15,
+    "scallop": 8,
+    "starfish": 2
+  },
+  "average_confidence": 0.826
+}
+
+Threshold Prediction Response:
+{
+  "success": true,
+  "output_image": "data:image/jpeg;base64,/9j/4AAQSkZJRg...",
+  "detections": [
+    {"class": "echinus", "confidence": 0.92},
+    {"class": "starfish", "confidence": 0.87}
+  ],
+  "count": 2,
+  "confidence_threshold": 0.5,
+  "output_path": "outputs/threshold_0.5_..."
+}
+
+
+TROUBLESHOOTING
+═════════════════════════════════════════════════════════════════
+
+Backend not responding?
+  → Check: python -m uvicorn main:app --reload
+  → Visit: http://localhost:8000/health
+
+Frontend not showing new features?
+  → Check: npm run dev is running
+  → Browser cache: Clear or hard refresh (Ctrl+F5)
+  → Logged in? Features only visible when authenticated
+
+Analytics shows no data?
+  → Normal if no detections uploaded yet
+  → Upload and detect images first
+  → Then view analytics (data aggregates)
+
+Threshold prediction fails?
+  → Check image file format (jpg/png)
+  → Check threshold is between 0.0 and 1.0
+  → Check backend is running
+
+
+WHAT'S WORKING
+═════════════════════════════════════════════════════════════════
+
+✅ Complete modular backend features
+✅ Responsive frontend UI
+✅ Real-time analytics
+✅ Interactive threshold control
+✅ Proper authentication (JWT)
+✅ Styled components with gradients
+✅ Mobile responsive design
+✅ Error handling & validation
+✅ Auto-refresh capabilities
+✅ Download functionality
+
+
+FEATURES ROADMAP
+═════════════════════════════════════════════════════════════════
+
+Implemented:
+  ✅ Analytics Dashboard
+  ✅ Confidence Threshold Control
+  ✅ Heatmap Functions (backend ready)
+
+Coming Soon:
+  ⬜ Heatmap Visualization UI
+  ⬜ Real-time Heatmap Overlay
+  ⬜ Export Analytics Report
+  ⬜ Batch Processing
+
+
+═════════════════════════════════════════════════════════════════
+You're all set! Enjoy the new features! 🎉
+═════════════════════════════════════════════════════════════════

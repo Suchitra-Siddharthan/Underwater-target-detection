@@ -1,0 +1,121 @@
+.image-uploader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upload-button {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f9bff 0%, #0066ff 100%);
+  color: #f3fbff;
+  border: 1px solid rgba(0, 180, 230, 0.7);
+  padding: 12px 28px;
+  font-size: 0.98rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+  z-index: 2;
+  white-space: nowrap;
+  backdrop-filter: blur(12px) saturate(160%);
+}
+
+.upload-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 0;
+}
+
+.upload-button:hover::before {
+  opacity: 1;
+}
+
+.upload-button:hover {
+  background: linear-gradient(135deg, #26a7ff 0%, #0088ff 100%);
+  border-color: rgba(0, 210, 255, 0.9);
+}
+
+.upload-button:active {
+  transform: translateY(1px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.detect-button {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #20b2aa 0%, #00d4ff 50%, #40e0d0 100%);
+  color: #0a1929;
+  border: 2px solid rgba(0, 212, 255, 0.5);
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(0, 212, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.detect-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+  z-index: -1;
+}
+
+.detect-button:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.detect-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00d4ff 0%, #40e0d0 50%, #20b2aa 100%);
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 212, 255, 0.7);
+  border-color: rgba(0, 212, 255, 0.8);
+}
+
+.detect-button:disabled {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5f7f 100%);
+  color: #7a9cc6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.detect-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
