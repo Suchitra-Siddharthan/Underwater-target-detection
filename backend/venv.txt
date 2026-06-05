@@ -1,0 +1,1 @@
+"C:\Users\ssuch\Downloads\Underwater-target-detection-main\Underwater-target-detection-main\backend\venv\Scripts\activate"
